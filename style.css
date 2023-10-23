@@ -1,0 +1,30 @@
+.container-img{
+    background-color: blue;
+    height: 400px;
+    width: 600px;
+    margin: 30px auto;
+}
+
+.container-img img{
+    height: 400px;
+    width: 600px;
+}
+
+.container-btn{
+    height: 100px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.container-btn button{
+    border: 0;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.container-btn button:hover{
+    cursor: pointer;
+}
