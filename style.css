@@ -29,3 +29,14 @@
 .container-btn button:hover{
     cursor: pointer;
 }
+
+.container-list-img img {
+    height: 300px;
+    width: 300px;
+}
+
+.container-list-img{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
