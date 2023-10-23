@@ -10,7 +10,7 @@
     width: 600px;
 }
 
-.container-btn{
+.container-btn, .container-select{
     height: 100px;
     width: 300px;
     display: flex;
@@ -19,7 +19,8 @@
     margin: 0 auto;
 }
 
-.container-btn button{
+.container-btn button, .container-select select{
+    background-color: lightblue;
     border: 0;
     padding: 20px;
     border-radius: 30px;
