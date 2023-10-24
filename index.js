@@ -1,33 +1,33 @@
-let btn = document.querySelector("button")
-let img = document.querySelector("img")
-let select = document.querySelector("select")
-let containerListImg = document.querySelector('.container-list-img')
-let response
-let pictureDog
-let imgSave = []
+let nbPerson = document.querySelector('.nbPerson')
+let nbVehicule  = document.querySelector('.nbVehicule')
+let nbPlanets = document.querySelector('.nbPlanets')
 
-async function getDog() {
+fetch("https://swapi.dev/api/people")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    nbPerson.innerHTML=data.count
+  })
+  .catch(error => {
+    console.error("Erreur lors de la récupération des données : ", error);
+  });
 
-    if(select.value == "/"){
-        response = await fetch("https://dog.ceo/api/breeds/image/random");
-        pictureDog = await response.json();
-        img.src = pictureDog.message
-    }else{
-        response = await fetch(`https://dog.ceo/api/breed/${select.value}/images/random`);
-        pictureDog = await response.json();
-        img.src = pictureDog.message
-    }
+fetch("https://swapi.dev/api/vehicles")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    nbVehicule.innerHTML=data.count
+  })
+  .catch(error => {
+    console.error("Erreur lors de la récupération des données : ", error);
+  });
 
-}
-
-
-btn.addEventListener("click", getDog)
-
-img.addEventListener('click', () =>{
-    imgSave.push(img.src)
-    let createImg  = document.createElement('img')
-    createImg.src = img.src
-    containerListImg.appendChild(createImg)
-
-})
-
+fetch("https://swapi.dev/api/planets")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    nbPlanets.innerHTML=data.count
+  })
+  .catch(error => {
+    console.error("Erreur lors de la récupération des données : ", error);
+  });
