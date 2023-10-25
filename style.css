@@ -90,7 +90,7 @@ li{
 
 .container-main-left ul li a{
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
 }
 
@@ -198,7 +198,7 @@ h1, p, a{
 
 .container-list-planet{
     height: 650px;
-    width: 650px;
+    width: 550px;
     border: 2px solid white;
     padding: 20px;
     margin: 50px;
@@ -217,7 +217,7 @@ h1, p, a{
     height: 30px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 550px;
+    width: 500px;
     margin: 0 auto;
 }
 
@@ -241,14 +241,12 @@ h1, p, a{
 .planet:hover{background-color: lightskyblue;
 }
 
-
-
 .container-show-planet{
     margin-top: 50px;
     margin-right: 50px;
     border: 2px solid white;
     height: 50px;
-    width: 100%;
+    width: 700px;
     display: flex;
     align-items: center;
     padding: 30px;
@@ -293,7 +291,7 @@ h1, p, a{
 }
 
 .statPlanetLeft{
-    margin-right: 300px;
+    margin-right: 100px;
     width: 200px;
 }
 
@@ -321,7 +319,7 @@ h1, p, a{
 .btnInfoPlanet{
     display: flex;
     justify-content: end;
-    width: 870px;
+    width: 700px;
 }
 
 .btnInfoPlanet button{
