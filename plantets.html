@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <title>cours js</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="container-nav">
+                <img src="https://cdn.freebiesupply.com/logos/large/2x/spacex-logo-black-and-white.png" alt="">
+                <ul class="container-list-nav">
+                    <li class="link-list-nav"><a href="/" class="active">Accueil</a></li>
+                    <li class="link-list-nav"><a href="/">Prochaine Mission</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-main">
+
+            <section class="container-main-left">
+
+                <ul class="nav-main-left">
+
+                    <li class="link-nav-main-left">
+                        <span class="material-symbols-outlined">
+                            language
+                            </span>
+                        <a href="/">PLANETES</a>
+                    </li>
+                    <li class="link-nav-main-left">
+                        <span class="material-symbols-outlined">
+                            rocket_launch
+                            </span>
+                        <a href="/">VEHICULES</a>
+                    </li>
+                    <li class="link-nav-main-left">
+                        <span class="material-symbols-outlined">
+                            face
+                            </span>
+                        <a href="/">PERSONNES</a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <section class="container-main-right" style="display: flex; flex-direction: row;">
+
+                <div class="container-list-planet">
+                    <h1 class="list-planet-title">PLANETES</h1>
+                    <select name="" id="list-planet-trie">
+                        <option value="population">Par population</option>
+                        <option value="population">Par population</option>
+                        <option value="population">Par population</option>
+                    </select>
+                    <input type="search" class="list-planet-nav" placeholder="Faites votre recherche">
+                    <div class="header-list-planet">
+                        <p>Nom</p>
+                        <p>Terrain</p>
+                    </div>
+                    <div class="list-planet"></div>
+                    <p class="nbPlanet2"></p>
+                </div>
+
+                <div class="container-show-planet">
+                    <p>Sélectionner le contenue à afficher !</p>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <script src="planet.js"></script>
+</body>
+</html>

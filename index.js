@@ -31,3 +31,6 @@ fetch("https://swapi.dev/api/planets")
   .catch(error => {
     console.error("Erreur lors de la récupération des données : ", error);
   });
+ ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
