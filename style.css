@@ -254,7 +254,7 @@ h1, p, a{
     padding: 30px;
 }
 
-.container-show-planet p{
+.messageNonePlanet p{
     color: lightskyblue;
 }
 
@@ -279,4 +279,70 @@ h1, p, a{
 
 .nbPlanet2{
     color: white;
+}
+
+.infoStatPlanet span{
+    color: lightskyblue;
+    font-size: 60px;
+}
+
+.infoStatPlanetTop, .infoStatPlanetBottom{
+    width: 700px;
+    padding: 0;
+    display: flex;
+}
+
+.statPlanetLeft{
+    margin-right: 300px;
+    width: 200px;
+}
+
+.nameInfoPlanet{
+    color: lightskyblue;
+}
+
+.statPlanetTop, .statPlanetBottom{
+    display: flex;
+    align-items: center;
+}
+
+.statPlanetTop p, .statPlanetBottom p{
+    margin: 0;
+}
+
+.population-info-show-planet{
+    margin-bottom: 50px;
+}
+
+.nbInfoPlanet{
+    margin-top: 10px!important;
+}
+
+.btnInfoPlanet{
+    display: flex;
+    justify-content: end;
+    width: 870px;
+}
+
+.btnInfoPlanet button{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btnInfoPlanet button:hover{
+    background-color: white;
+    color: black;
+}
+
+.inactive{
+    display: none;
+    height: 50px!important;
+}
+
+.active{
+    display: block;
 }
