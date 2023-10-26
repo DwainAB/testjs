@@ -10,11 +10,8 @@ let messageNonePlanet = document.querySelector('.messageNonePlanet');
 let infoShowPlanet = document.querySelector('.infoShowPlanet');
 let containerShowPlanet = document.querySelector('.container-show-planet');
 const selectElement = document.getElementById('list-planet-trie');
-
 let allPlanets = [];
 let filteredPlanets = [];
-
-
 
 const fetchAllPlanets = async () => {
   let nextPage = "https://swapi.dev/api/planets/";
@@ -25,16 +22,14 @@ const fetchAllPlanets = async () => {
 
     allPlanets = allPlanets.concat(data.results);
 
-    nextPage = data.next; 
+    nextPage = data.next;
   }
 };
 
 
-
-
 fetchAllPlanets()
   .then(() => {
-    createElement(filteredPlanets)
+    filterPlanets();
   })
   .catch(error => {
     console.error("Erreur lors de la récupération des données : ", error);
@@ -42,77 +37,71 @@ fetchAllPlanets()
 
 
 
+function displayInfo(element) {
+  if (allPlanets.length === 0) {
+    infoShowPlanet.classList.replace('active', 'inactive');
+    messageNonePlanet.classList.replace("inactive", "active");
+    containerShowPlanet.style.height = "50px";
+  } else {
+    containerShowPlanet.style.height = "300px";
+    messageNonePlanet.classList.replace("active", "inactive");
+    infoShowPlanet.classList.replace('inactive', 'active');
+    titleInfoShowPlanet.innerHTML = element.name;
+    nbPopulationInfoPlanet.innerHTML = element.population;
+    nbInfoPlanetDiametre.innerHTML = element.diameter;
+    nbInfoPlanetClimat.innerHTML = element.climate;
+    nbInfoPlanetGravite.innerHTML = element.gravity;
+    nbInfoPlanetTerrain.innerHTML = element.terrain;
+  }
+}
 
-   function displayInfo(element) {
-      if (allPlanets.length === 0) {
-        infoShowPlanet.classList.replace('active', 'inactive')
-        messageNonePlanet.classList.replace("inactive", "active");
-        containerShowPlanet.style.height = "50px"
+function filterPlanets() {
+  const selectedValue = selectElement.value;
 
-    } else {
-        containerShowPlanet.style.height = "300px"
-        messageNonePlanet.classList.replace("active", "inactive");
-        infoShowPlanet.classList.replace('inactive', 'active')
-        titleInfoShowPlanet.innerHTML = element.name
-        nbPopulationInfoPlanet.innerHTML = element.population
-        nbInfoPlanetDiametre.innerHTML = element.diameter
-        nbInfoPlanetClimat.innerHTML = element.climate
-        nbInfoPlanetGravite.innerHTML = element.gravity
-        nbInfoPlanetTerrain.innerHTML = element.terrain
-    }
- }
-
- function filterPlanets(filteredPlanets){
-    selectElement.addEventListener('change', function(filteredPlanets) {
-        const selectedValue = selectElement.value;
-              
-        switch (selectedValue) {
-          case "0 - 100 000":
-            filteredPlanets = allPlanets.filter(element => {
-              return console.logelement.population !== "unknown" && parseInt(element.population) <= 100000
-            });
-            break;
-          case "100 000 - 500 000":
-            filteredPlanets = allPlanets.filter(element => {
-              return element.population !== "unknown" && parseInt(element.population) > 100000 && parseInt(element.population) <= 500000
-            });
-            break;
-          case "+ 500 000":
-            filteredPlanets = allPlanets.filter(element => {
-              return element.population !== "unknown" && parseInt(element.population) > 500000
-            });
-            break;
-          default:
-          
-            filteredPlanets = allPlanets;
-        }
-      
-        console.log(filteredPlanets);
+  switch (selectedValue) {
+    case "0 - 100 000":
+      filteredPlanets = allPlanets.filter(element => {
+        return element.population !== "unknown" && parseInt(element.population) <= 100000;
       });
- }
+      break;
+    case "100 000 - 500 000":
+      filteredPlanets = allPlanets.filter(element => {
+        return element.population !== "unknown" && parseInt(element.population) > 100000 && parseInt(element.population) <= 500000;
+      });
+      break;
+    case "+ 500 000":
+      filteredPlanets = allPlanets.filter(element => {
+        return element.population !== "unknown" && parseInt(element.population) > 500000;
+      });
+      break;
+    default:
+      filteredPlanets = allPlanets;
+  }
+  createElement();
+}
 
- function createElement(filteredPlanets){
-    nbPlanet2.innerHTML = filteredPlanets.length + " " + "résultat(s)";
-
+function createElement() {
+    listPlanet.innerHTML = ''
+  
+    nbPlanet2.innerHTML = filteredPlanets.length + " " + "résultat(s)"
+  
     filteredPlanets.forEach(element => {
-      let divPlanet = document.createElement('div');
-      divPlanet.classList.add('planet');
 
-      let namePlanet = document.createElement('p');
-      namePlanet.innerHTML = element.name;
-
-      let locationPlanet = document.createElement('p');
-      locationPlanet.innerHTML = element.terrain;
-
-      divPlanet.appendChild(namePlanet);
-      divPlanet.appendChild(locationPlanet);
-      listPlanet.appendChild(divPlanet);
-
-      divPlanet.addEventListener('click', () => {
-        displayInfo(element);
-      });
-
-      filterPlanets()
+      let planet = document.createElement('div')
+      planet.classList.add('planet')
       
-    });
- }
+      planet.innerHTML = `
+          <p>${element.name}</p>
+          <p>${element.terrain}</p>
+      `
+      
+      listPlanet.appendChild(planet)
+  
+      planet.addEventListener('click', () => {
+        displayInfo(element);
+      })
+    })
+  }
+  
+
+selectElement.addEventListener('change', filterPlanets)
